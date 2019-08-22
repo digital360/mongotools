@@ -4,8 +4,7 @@ ENV GOROOT=/usr/local/go
 ENV GOPATH=/go
 
 RUN apk add --no-cache \
-    git \
-    perl
+    git
 
 RUN git clone https://github.com/mongodb/mongo-tools.git /usr/local/go/src/github.com/mongodb/mongo-tools
 
