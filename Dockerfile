@@ -1,5 +1,3 @@
-ARG base_image
-
 FROM golang:alpine as golang
 
 ENV GOROOT=/usr/local/go
@@ -16,7 +14,3 @@ RUN cd /usr/local/go/src/github.com/mongodb/mongo-tools && \
 
 RUN cd /usr/local/go/src/github.com/mongodb/mongo-tools && \
     go build -o /usr/local/bin/mongorestore mongorestore/main/mongorestore.go
-
-FROM $base_image
-
-COPY --from=golang /usr/local/bin/mongorestore /usr/bin/mongorestore
